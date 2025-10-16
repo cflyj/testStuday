@@ -1,4 +1,5 @@
 <template>
+  <!-- 弹幕容器-动画设置从右到左 -->
   <div class="danmaku-container">
     <div class="danmaku-track">
       <div 
@@ -17,6 +18,7 @@
       <button @click="startDanmaku" :disabled="isPlaying">开始弹幕</button>
       <button @click="stopDanmaku" :disabled="!isPlaying">停止弹幕</button>
       <button @click="addDanmaku">添加弹幕</button>
+      <button @click="triggerLogin">触发登录弹窗</button>
     </div>
     
     <!-- 添加自定义弹幕输入框 -->
@@ -32,6 +34,7 @@
 </template>
 
 <script>
+import intent from '@/intent'
 export default {
   name: 'TestOne',
   data() {
@@ -63,6 +66,10 @@ export default {
     }
   },
   methods: {
+    // 触发登录意图
+    triggerLogin() {
+      intent.showLoginPopup({ from: 'TestOne' })
+    },
     // 开始弹幕
     startDanmaku() {
       if (this.isPlaying) return

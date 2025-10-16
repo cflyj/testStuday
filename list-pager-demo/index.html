@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ListPager Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <h2>ListPager Demo</h2>
+
+    <div class="controls">
+      <label>
+        模式：
+        <select id="mode">
+          <option value="page">page（页码分页）</option>
+          <option value="cursor">cursor（加载更多）</option>
+        </select>
+      </label>
+      <label>
+        pageSize：
+        <input id="pageSize" type="number" value="10" min="1" />
+      </label>
+      <button id="reload">重载</button>
+    </div>
+
+    <!-- 插槽式 item 模板：业务可在此自定义结构，使用 {{id}}、{{title}} 等字段占位 -->
+    <template id="item-slot">
+      <div class="item">
+        <strong>#{{id}}</strong> - <span>{{title}}</span>
+      </div>
+    </template>
+
+    <div id="list"></div>
+    <div id="footer" class="footer"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
